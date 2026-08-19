@@ -36,9 +36,7 @@
   width: 100%;
   max-width: 900px;
 
-  padding:
-    72px 24px
-    60px;
+  padding: 72px 24px 60px;
 
   display: flex;
   flex-direction: column;
@@ -83,8 +81,7 @@
 .broker-header p {
   max-width: 560px;
 
-  margin:
-    14px auto 0;
+  margin: 14px auto 0;
 
   font-size: 16px;
   line-height: 1.6;
@@ -93,22 +90,28 @@
 }
 
 
-/* BROKER SECTION */
+/* BROKER GRID */
 
-.single-broker-section {
+.broker-grid {
   width: 100%;
 
-  display: flex;
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 310px));
+
   justify-content: center;
+
+  gap: 24px;
 }
 
 
-/* ZERODHA CARD */
+/* BROKER CARD */
 
-.zerodha-card {
+.broker-card {
   position: relative;
 
-  width: 310px;
+  width: 100%;
   min-height: 300px;
 
   border: 1px solid #e4e7ec;
@@ -141,7 +144,7 @@
 
 /* HOVER */
 
-.zerodha-card:hover {
+.broker-card:hover {
   transform: translateY(-6px);
 
   border-color: #d0d5dd;
@@ -154,7 +157,7 @@
 
 /* CLICK */
 
-.zerodha-card:active {
+.broker-card:active {
   transform: translateY(-2px);
 }
 
@@ -192,11 +195,11 @@
 
 /* CONTENT */
 
-.zerodha-content {
+.broker-content {
   text-align: center;
 }
 
-.zerodha-content h2 {
+.broker-content h2 {
   margin: 0;
 
   font-size: 21px;
@@ -207,9 +210,8 @@
   color: #101828;
 }
 
-.zerodha-content p {
-  margin:
-    8px 0 0;
+.broker-content p {
+  margin: 8px 0 0;
 
   font-size: 13px;
 
@@ -245,7 +247,7 @@
     background 0.2s ease;
 }
 
-.zerodha-card:hover .connect-arrow {
+.broker-card:hover .connect-arrow {
   transform: translateX(3px);
 
   background: #1d2939;
@@ -259,6 +261,7 @@
 
   display: flex;
   align-items: center;
+
   gap: 8px;
 
   font-size: 12px;
@@ -287,12 +290,10 @@
 
 /* TABLET */
 
-@media (max-width: 600px) {
+@media (max-width: 720px) {
 
   .broker-container {
-    padding:
-      55px 20px
-      45px;
+    padding: 55px 20px 45px;
   }
 
   .broker-header {
@@ -307,11 +308,15 @@
     font-size: 15px;
   }
 
-  .zerodha-card {
-    width: 290px;
-    min-height: 285px;
+  .broker-grid {
+    grid-template-columns: 1fr;
+
+    width: min(100%, 310px);
   }
 
+  .broker-card {
+    min-height: 285px;
+  }
 }
 
 
@@ -320,9 +325,7 @@
 @media (max-width: 400px) {
 
   .broker-container {
-    padding:
-      45px 16px
-      40px;
+    padding: 45px 16px 40px;
   }
 
   .broker-header h1 {
@@ -333,9 +336,11 @@
     font-size: 14px;
   }
 
-  .zerodha-card {
+  .broker-grid {
     width: 100%;
-    max-width: 300px;
   }
 
+  .broker-card {
+    width: 100%;
+  }
 }

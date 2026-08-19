@@ -52,7 +52,7 @@ require("dotenv").config();
 
 const express = require("express");
 const cors = require("cors");
-
+const growwRoutes = require("./routes/growwRoutes");
 const zerodhaRoutes = require("./routes/zerodhaRoutes");
 
 const app = express();
@@ -95,7 +95,7 @@ app.get("/", (req, res) => {
 // ==========================================
 
 app.use("/api/zerodha", zerodhaRoutes);
-
+app.use("/api/groww",growwRoutes);
 // ==========================================
 // START SERVER
 // ==========================================

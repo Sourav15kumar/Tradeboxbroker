@@ -242,7 +242,9 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 import "./ZerodhaAuth.css";
-import LearnMoreModal from "./LearnMoreModal";
+
+import LearnMoreModal
+  from "../../components/LearnMoreModal/LearnMoreModal";
 
 function ZerodhaAuth() {
 
