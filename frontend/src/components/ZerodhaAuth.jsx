@@ -238,13 +238,15 @@
 
 
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
+
 import "./ZerodhaAuth.css";
 import LearnMoreModal from "./LearnMoreModal";
 
-import zerodhaImage from "../assets/brokers/zerodha.png";
+function ZerodhaAuth() {
 
-function ZerodhaAuth({ onBack }) {
+  const navigate = useNavigate();
 
   const [apiKey, setApiKey] = useState("");
   const [apiSecret, setApiSecret] = useState("");
@@ -255,8 +257,6 @@ function ZerodhaAuth({ onBack }) {
   const [showSecret, setShowSecret] = useState(false);
   const [showLearnMore, setShowLearnMore] = useState(false);
 
-
-  // ZERODHA AUTHENTICATION
   const handleAuthenticate = async (e) => {
 
     e.preventDefault();
@@ -292,11 +292,9 @@ function ZerodhaAuth({ onBack }) {
         );
       }
 
-
       const loginUrl = new URL(
         response.data.loginUrl
       );
-
 
       loginUrl.searchParams.set(
         "redirect_params",
@@ -305,16 +303,12 @@ function ZerodhaAuth({ onBack }) {
         )}`
       );
 
-
       window.location.href =
         loginUrl.toString();
 
     } catch (err) {
 
-      console.error(
-        "Zerodha authentication error:",
-        err
-      );
+      console.error(err);
 
       setError(
         err.response?.data?.message ||
@@ -326,27 +320,24 @@ function ZerodhaAuth({ onBack }) {
     }
   };
 
-
   return (
-
     <div className="zerodha-auth-page">
 
+      <div className="auth-grid" />
 
-      {/* HEADER */}
+      <div className="auth-glow auth-glow-one" />
+      <div className="auth-glow auth-glow-two" />
 
       <header className="auth-header">
 
         <button
           type="button"
           className="back-button"
-          onClick={onBack}
+          onClick={() => navigate("/")}
         >
-          ←
-          <span>
-            Back to brokers
-          </span>
+          <span>←</span>
+          Back to brokers
         </button>
-
 
         <div className="auth-brand">
 
@@ -354,91 +345,55 @@ function ZerodhaAuth({ onBack }) {
             T
           </div>
 
-          <div>
-            <strong>
-              Tradebox
-            </strong>
-
-            <small>
-              Broker Integration
-            </small>
-          </div>
+          <span>
+            Tradebox
+          </span>
 
         </div>
 
-
         <div className="auth-header-secure">
-
           <span />
-
           Secure connection
-
         </div>
 
       </header>
 
-
-
-      {/* MAIN */}
-
       <main className="auth-main">
-
 
         <div className="auth-card">
 
+          <div className="auth-card-header">
 
-          {/* TOP */}
-
-          <div className="auth-card-top">
-
-
-            <div className="broker-logo-container">
-
-              <img
-                src={zerodhaImage}
-                alt="Zerodha"
-                className="zerodha-image"
-              />
-
+            <div className="zerodha-big-logo">
+              Z
             </div>
-
 
             <div className="auth-heading">
 
               <div className="broker-label">
-
                 <span />
-
                 ZERODHA
-
               </div>
-
 
               <h1>
                 Connect your account
               </h1>
 
-
               <p>
                 Enter your Kite Connect API
                 credentials to securely connect
-                your Zerodha trading account.
+                your Zerodha account.
               </p>
 
             </div>
 
           </div>
 
-
-
-          {/* SECURITY */}
-
           <div className="security-box">
 
-            <div className="security-check">
+            <div className="security-box-icon">
               ✓
             </div>
-
 
             <div>
 
@@ -456,24 +411,17 @@ function ZerodhaAuth({ onBack }) {
 
           </div>
 
-
-
-          {/* FORM */}
-
           <form
-            className="auth-form"
             onSubmit={handleAuthenticate}
+            className="auth-form"
           >
-
-
-            {/* API KEY */}
 
             <div className="field-group">
 
               <div className="label-row">
 
                 <label>
-                  Zerodha API Key
+                  API Key
                 </label>
 
                 <span>
@@ -482,18 +430,16 @@ function ZerodhaAuth({ onBack }) {
 
               </div>
 
-
               <div className="premium-input">
 
-                <div className="input-prefix">
-                  KEY
+                <div className="input-icon">
+                  #
                 </div>
-
 
                 <input
                   type="text"
+                  placeholder="Enter your Zerodha API Key"
                   value={apiKey}
-                  placeholder="Enter your API Key"
                   onChange={(e) =>
                     setApiKey(e.target.value)
                   }
@@ -504,16 +450,12 @@ function ZerodhaAuth({ onBack }) {
 
             </div>
 
-
-
-            {/* API SECRET */}
-
             <div className="field-group">
 
               <div className="label-row">
 
                 <label>
-                  Zerodha API Secret
+                  API Secret
                 </label>
 
                 <span>
@@ -522,13 +464,11 @@ function ZerodhaAuth({ onBack }) {
 
               </div>
 
-
               <div className="premium-input">
 
-                <div className="input-prefix">
-                  SEC
+                <div className="input-icon">
+                  •••
                 </div>
-
 
                 <input
                   type={
@@ -536,38 +476,27 @@ function ZerodhaAuth({ onBack }) {
                       ? "text"
                       : "password"
                   }
+                  placeholder="Enter your Zerodha API Secret"
                   value={apiSecret}
-                  placeholder="Enter your API Secret"
                   onChange={(e) =>
-                    setApiSecret(
-                      e.target.value
-                    )
+                    setApiSecret(e.target.value)
                   }
                   autoComplete="new-password"
                 />
-
 
                 <button
                   type="button"
                   className="show-button"
                   onClick={() =>
-                    setShowSecret(
-                      !showSecret
-                    )
+                    setShowSecret(!showSecret)
                   }
                 >
-                  {showSecret
-                    ? "Hide"
-                    : "Show"}
+                  {showSecret ? "Hide" : "Show"}
                 </button>
 
               </div>
 
             </div>
-
-
-
-            {/* LEARN MORE */}
 
             <button
               type="button"
@@ -577,58 +506,26 @@ function ZerodhaAuth({ onBack }) {
               }
             >
 
-              <div className="learn-more-left">
+              <span className="learn-icon">
+                ?
+              </span>
 
-                <div className="learn-more-icon">
-                  ?
-                </div>
+              <span>
+                How do I get my API Key & Secret?
+              </span>
 
-
-                <div>
-
-                  <strong>
-                    New to Kite Connect?
-                  </strong>
-
-                  <span>
-                    Learn how to get your API Key
-                    & Secret
-                  </span>
-
-                </div>
-
-              </div>
-
-
-              <span className="learn-more-arrow">
+              <span className="learn-arrow">
                 →
               </span>
 
             </button>
 
-
-
-            {/* ERROR */}
-
             {error && (
-
               <div className="auth-error">
-
-                <span>
-                  !
-                </span>
-
-                <p>
-                  {error}
-                </p>
-
+                <span>!</span>
+                {error}
               </div>
-
             )}
-
-
-
-            {/* AUTHENTICATE */}
 
             <button
               type="submit"
@@ -637,13 +534,10 @@ function ZerodhaAuth({ onBack }) {
             >
 
               <span>
-
                 {loading
                   ? "Connecting..."
                   : "Authenticate with Zerodha"}
-
               </span>
-
 
               {!loading && (
                 <span className="button-arrow">
@@ -653,58 +547,37 @@ function ZerodhaAuth({ onBack }) {
 
             </button>
 
-
           </form>
-
-
-
-          {/* FOOTER */}
 
           <div className="auth-card-footer">
 
-            <span>
+            <span className="footer-lock">
               🔒
             </span>
 
-            <p>
+            <span>
               Authentication is handled through
               Zerodha's official Kite Connect flow.
-            </p>
+            </span>
 
           </div>
 
-
         </div>
-
-
 
         <div className="auth-bottom-note">
-
           Tradebox Broker Integration
-
-          <span>
-            •
-          </span>
-
+          <span>•</span>
           Zerodha
-
         </div>
-
 
       </main>
 
-
-
-      {/* LEARN MORE MODAL */}
-
       {showLearnMore && (
-
         <LearnMoreModal
           onClose={() =>
             setShowLearnMore(false)
           }
         />
-
       )}
 
     </div>

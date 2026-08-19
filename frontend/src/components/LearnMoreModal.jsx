@@ -3,22 +3,16 @@ import "./LearnMoreModal.css";
 function LearnMoreModal({ onClose }) {
 
   return (
-
     <div
       className="learn-overlay"
       onMouseDown={(e) => {
-
         if (e.target === e.currentTarget) {
           onClose();
         }
-
       }}
     >
 
       <div className="learn-modal">
-
-
-        {/* HEADER */}
 
         <div className="learn-modal-header">
 
@@ -39,7 +33,6 @@ function LearnMoreModal({ onClose }) {
 
           </div>
 
-
           <button
             type="button"
             className="close-learn"
@@ -50,18 +43,10 @@ function LearnMoreModal({ onClose }) {
 
         </div>
 
-
-
-        {/* STEPS */}
-
         <div className="learn-steps">
 
-
           <div className="learn-step">
-
-            <div className="step-number">
-              01
-            </div>
+            <div className="step-number">01</div>
 
             <div className="step-content">
 
@@ -71,8 +56,7 @@ function LearnMoreModal({ onClose }) {
 
               <p>
                 Sign in to the official Zerodha
-                Kite Connect developer platform
-                using your Zerodha account.
+                Kite Connect developer platform.
               </p>
 
               <a
@@ -82,22 +66,14 @@ function LearnMoreModal({ onClose }) {
                 className="official-link"
               >
                 Open Kite Connect
-                <span>
-                  ↗
-                </span>
+                <span>↗</span>
               </a>
 
             </div>
-
           </div>
 
-
-
           <div className="learn-step">
-
-            <div className="step-number">
-              02
-            </div>
+            <div className="step-number">02</div>
 
             <div className="step-content">
 
@@ -112,40 +88,27 @@ function LearnMoreModal({ onClose }) {
               </p>
 
             </div>
-
           </div>
 
-
-
           <div className="learn-step">
-
-            <div className="step-number">
-              03
-            </div>
+            <div className="step-number">03</div>
 
             <div className="step-content">
 
               <h3>
-                Select the correct app type
+                Select Connect
               </h3>
 
               <p>
-                For API access, choose the
-                Connect application type according
-                to your Zerodha plan.
+                Select the Connect application
+                type for API access.
               </p>
 
             </div>
-
           </div>
 
-
-
           <div className="learn-step">
-
-            <div className="step-number">
-              04
-            </div>
+            <div className="step-number">04</div>
 
             <div className="step-content">
 
@@ -155,32 +118,19 @@ function LearnMoreModal({ onClose }) {
 
               <p>
                 Open your application details and
-                copy the API Key shown by Zerodha.
+                copy the API Key.
               </p>
 
               <div className="credential-example">
-
-                <span>
-                  API Key
-                </span>
-
-                <strong>
-                  Your API Key
-                </strong>
-
+                <span>API Key</span>
+                <strong>Your API Key</strong>
               </div>
 
             </div>
-
           </div>
 
-
-
           <div className="learn-step">
-
-            <div className="step-number">
-              05
-            </div>
+            <div className="step-number">05</div>
 
             <div className="step-content">
 
@@ -194,65 +144,37 @@ function LearnMoreModal({ onClose }) {
               </p>
 
               <div className="credential-example">
-
-                <span>
-                  API Secret
-                </span>
-
-                <strong>
-                  Your API Secret
-                </strong>
-
+                <span>API Secret</span>
+                <strong>Your API Secret</strong>
               </div>
 
             </div>
-
           </div>
 
-
-
           <div className="learn-step">
-
-            <div className="step-number">
-              06
-            </div>
+            <div className="step-number">06</div>
 
             <div className="step-content">
 
               <h3>
-                Set your Redirect URL
+                Configure Redirect URL
               </h3>
 
               <p>
-                In your Zerodha application,
-                configure the Redirect URL that
-                points to your Tradebox backend
-                callback.
+                Add your Tradebox backend callback
+                URL to the Zerodha application.
               </p>
 
               <div className="credential-example">
-
-                <span>
-                  Redirect URL
-                </span>
-
-                <strong>
-                  Your configured callback URL
-                </strong>
-
+                <span>Redirect URL</span>
+                <strong>Your configured callback URL</strong>
               </div>
 
             </div>
-
           </div>
 
-
-
           <div className="learn-step">
-
-            <div className="step-number">
-              07
-            </div>
+            <div className="step-number">07</div>
 
             <div className="step-content">
 
@@ -261,21 +183,14 @@ function LearnMoreModal({ onClose }) {
               </h3>
 
               <p>
-                Return to Tradebox, enter your
-                API Key and API Secret, then click
-                Authenticate with Zerodha.
+                Return to Tradebox, enter your API
+                Key and API Secret and authenticate.
               </p>
 
             </div>
-
           </div>
 
-
         </div>
-
-
-
-        {/* SECURITY */}
 
         <div className="learn-security">
 
@@ -298,10 +213,6 @@ function LearnMoreModal({ onClose }) {
 
         </div>
 
-
-
-        {/* FOOTER */}
-
         <div className="learn-modal-footer">
 
           <span>
@@ -318,9 +229,7 @@ function LearnMoreModal({ onClose }) {
 
         </div>
 
-
       </div>
-
     </div>
   );
 }

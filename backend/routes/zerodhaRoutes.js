@@ -28,18 +28,18 @@ const {
 
 const router = express.Router();
 
-// ==========================================
+
 // START ZERODHA AUTHENTICATION
-// ==========================================
+
 
 router.post(
   "/authenticate",
   startAuthentication
 );
 
-// ==========================================
+
 // ZERODHA CALLBACK
-// ==========================================
+
 
 router.get(
   "/callback",

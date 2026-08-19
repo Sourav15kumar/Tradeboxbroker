@@ -33,37 +33,85 @@
 
 // export default App;
 
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+
+
+
+// import {
+//   BrowserRouter,
+//   Routes,
+//   Route,
+//   Navigate,
+// } from "react-router-dom";
+
+// import BrokerSelection from "./components/BrokerSelection";
+// import ZerodhaAuth from "./components/ZerodhaAuth";
+
+// function App() {
+//   return (
+//     <BrowserRouter>
+//       <Routes>
+
+//         {/* FIRST PAGE */}
+//         <Route
+//           path="/"
+//           element={<BrokerSelection />}
+//         />
+
+//         {/* ZERODHA LOGIN */}
+//         <Route
+//           path="/zerodha/login"
+//           element={<ZerodhaAuth />}
+//         />
+
+//         {/* UNKNOWN URL */}
+//         <Route
+//           path="*"
+//           element={<Navigate to="/" replace />}
+//         />
+
+//       </Routes>
+//     </BrowserRouter>
+//   );
+// }
+
+// export default App;
+
+
+
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 
 import BrokerSelection from "./components/BrokerSelection";
 import ZerodhaAuth from "./components/ZerodhaAuth";
 
-
 function App() {
-
   return (
     <BrowserRouter>
 
       <Routes>
 
-        {/* BROKER SELECTION */}
         <Route
           path="/"
           element={<BrokerSelection />}
         />
 
-
-        {/* API BROKER LOGIN */}
         <Route
           path="/login-with-api"
           element={<ZerodhaAuth />}
         />
 
-
-        {/* UNKNOWN URL */}
         <Route
           path="*"
-          element={<Navigate to="/" replace />}
+          element={
+            <Navigate
+              to="/"
+              replace
+            />
+          }
         />
 
       </Routes>
@@ -71,6 +119,5 @@ function App() {
     </BrowserRouter>
   );
 }
-
 
 export default App;
