@@ -11,6 +11,8 @@ import ZerodhaAuth from "./brokers/zerodha/ZerodhaAuth";
 
 import GrowwAuth from "./brokers/groww/GrowwAuth";
 
+import UpstoxAuth from "./brokers/upstox/UpstoxAuth";
+
 function App() {
   return (
     <BrowserRouter>
@@ -33,7 +35,13 @@ function App() {
         <Route
           path="/groww"
           element={<GrowwAuth />}
-        />
+        />   
+
+      {/* upstock */}
+        <Route
+  path="/upstox"
+  element={<UpstoxAuth />}
+/>
 
         {/* Unknown URL */}
         <Route

@@ -3,27 +3,47 @@ import { useNavigate } from "react-router-dom";
 
 import zerodhaImage from "../../assets/brokers/zerodha.png";
 import growwImage from "../../assets/brokers/groww.png";
+import upstoxImage from "../../assets/brokers/upstox.png";
 
 import "./BrokerSelection.css";
 
 function BrokerSelection() {
-
   const navigate = useNavigate();
+
+  // ==========================================================
+  // ZERODHA
+  // Existing flow - DO NOT CHANGE
+  // ==========================================================
 
   const handleZerodha = () => {
     navigate("/login-with-api");
   };
 
+  // ==========================================================
+  // GROWW
+  // Existing flow - DO NOT CHANGE
+  // ==========================================================
+
   const handleGroww = () => {
     navigate("/groww");
   };
 
+  // ==========================================================
+  // UPSTOX
+  // New broker flow
+  // ==========================================================
+
+  const handleUpstox = () => {
+    navigate("/upstox");
+  };
+
   return (
     <div className="broker-page">
-
       <main className="broker-container">
 
-        {/* HEADER */}
+        {/* ==================================================
+            HEADER
+            ================================================== */}
 
         <section className="broker-header">
 
@@ -42,13 +62,16 @@ function BrokerSelection() {
 
         </section>
 
-
-        {/* BROKERS */}
+        {/* ==================================================
+            BROKER CARDS
+            ================================================== */}
 
         <section className="broker-grid">
 
-
-          {/* ZERODHA */}
+          {/* ==================================================
+              ZERODHA
+              Existing broker
+              ================================================== */}
 
           <button
             type="button"
@@ -83,8 +106,10 @@ function BrokerSelection() {
 
           </button>
 
-
-          {/* GROWW */}
+          {/* ==================================================
+              GROWW
+              Existing broker
+              ================================================== */}
 
           <button
             type="button"
@@ -119,11 +144,49 @@ function BrokerSelection() {
 
           </button>
 
+          {/* ==================================================
+              UPSTOX
+              New broker
+              ================================================== */}
+
+          <button
+            type="button"
+            className="broker-card"
+            onClick={handleUpstox}
+          >
+
+            <div className="broker-image-box">
+
+              <img
+                src={upstoxImage}
+                alt="Upstox"
+              />
+
+            </div>
+
+            <div className="broker-content">
+
+              <h2>
+                Upstox
+              </h2>
+
+              <p>
+                Connect using Upstox API
+              </p>
+
+            </div>
+
+            <div className="connect-arrow">
+              →
+            </div>
+
+          </button>
 
         </section>
 
-
-        {/* SECURITY */}
+        {/* ==================================================
+            SECURITY
+            ================================================== */}
 
         <div className="secure-note">
 
@@ -138,7 +201,6 @@ function BrokerSelection() {
         </div>
 
       </main>
-
     </div>
   );
 }
