@@ -1,0 +1,813 @@
+* {
+  box-sizing: border-box;
+}
+
+/* =========================================================
+   OVERLAY
+========================================================= */
+
+.learn-modal-overlay {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 9999;
+
+  padding:
+    30px
+    18px;
+
+  background:
+    rgba(
+      15,
+      23,
+      42,
+      0.48
+    );
+
+  backdrop-filter: blur(6px);
+
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: center;
+
+  overflow-y: auto;
+}
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.learn-modal {
+  position: relative;
+
+  width: 100%;
+
+  max-width: 650px;
+
+  margin: auto;
+
+  padding:
+    38px
+    38px
+    34px;
+
+  border:
+    1px solid #e4e7ec;
+
+  border-radius: 24px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 30px 90px
+    rgba(
+      16,
+      24,
+      40,
+      0.22
+    );
+
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Arial,
+    sans-serif;
+
+  color: #101828;
+}
+
+/* =========================================================
+   CLOSE
+========================================================= */
+
+.learn-modal-close {
+  position: absolute;
+
+  top: 18px;
+  right: 20px;
+
+  width: 36px;
+  height: 36px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background: #f2f4f7;
+
+  color: #667085;
+
+  font-size: 22px;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.learn-modal-close:hover {
+  background: #eaecf0;
+
+  color: #101828;
+}
+
+/* =========================================================
+   REAL ICICI LOGO
+========================================================= */
+
+.learn-modal-icon {
+  width: 64px;
+  height: 64px;
+
+  margin-bottom: 18px;
+
+  padding: 7px;
+
+  border:
+    1px solid #e4e7ec;
+
+  border-radius: 17px;
+
+  background: #ffffff;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 5px 14px
+    rgba(
+      16,
+      24,
+      40,
+      0.06
+    );
+}
+
+.icici-modal-logo {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  display: block;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.learn-modal-label {
+  margin-bottom: 8px;
+
+  color: #16a34a;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.5px;
+}
+
+.learn-modal h2 {
+  margin:
+    0
+    0
+    10px;
+
+  color: #101828;
+
+  font-size: 25px;
+
+  line-height: 1.25;
+
+  letter-spacing: -0.5px;
+}
+
+.learn-modal-description {
+  margin:
+    0
+    0
+    28px;
+
+  max-width: 530px;
+
+  color: #667085;
+
+  font-size: 13px;
+
+  line-height: 1.65;
+}
+
+/* =========================================================
+   STEPS
+========================================================= */
+
+.learn-step {
+  position: relative;
+
+  padding:
+    18px
+    18px;
+
+  margin-bottom: 12px;
+
+  border:
+    1px solid #eaecf0;
+
+  border-radius: 15px;
+
+  background: #ffffff;
+
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 14px;
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.learn-step:hover {
+  border-color: #bbf7d0;
+
+  background: #fbfefc;
+
+  transform: translateY(-1px);
+}
+
+/* =========================================================
+   STEP NUMBER
+========================================================= */
+
+.step-number {
+  width: 31px;
+  height: 31px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: #dcfae6;
+
+  color: #16a34a;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-size: 12px;
+
+  font-weight: 800;
+}
+
+/* =========================================================
+   STEP CONTENT
+========================================================= */
+
+.step-content {
+  flex: 1;
+
+  min-width: 0;
+}
+
+.step-content strong {
+  display: block;
+
+  color: #344054;
+
+  font-size: 13px;
+
+  font-weight: 750;
+}
+
+.step-content p {
+  margin:
+    6px
+    0
+    0;
+
+  color: #667085;
+
+  font-size: 12px;
+
+  line-height: 1.6;
+}
+
+.step-content b {
+  color: #344054;
+
+  font-weight: 750;
+}
+
+/* =========================================================
+   OFFICIAL LINK
+========================================================= */
+
+.learn-link {
+  display: inline-flex;
+
+  align-items: center;
+
+  margin-top: 10px;
+
+  color: #16a34a;
+
+  font-size: 11px;
+
+  font-weight: 750;
+
+  text-decoration: none;
+}
+
+.learn-link:hover {
+  text-decoration: underline;
+}
+
+/* =========================================================
+   REDIRECT INFO
+========================================================= */
+
+.redirect-info {
+  margin-top: 11px;
+
+  padding: 11px;
+
+  border:
+    1px solid #d1fadf;
+
+  border-radius: 10px;
+
+  background: #f6fef9;
+}
+
+.redirect-info span {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #16a34a;
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.7px;
+}
+
+.redirect-info code {
+  color: #344054;
+
+  font-family:
+    Consolas,
+    Monaco,
+    monospace;
+
+  font-size: 10px;
+
+  overflow-wrap: anywhere;
+}
+
+/* =========================================================
+   SMALL NOTE
+========================================================= */
+
+.learn-small-note {
+  margin-top: 10px;
+
+  padding:
+    9px
+    11px;
+
+  border-left:
+    3px solid #16a34a;
+
+  border-radius:
+    0
+    8px
+    8px
+    0;
+
+  background: #f6fef9;
+
+  color: #667085;
+
+  font-size: 10px;
+
+  line-height: 1.55;
+}
+
+/* =========================================================
+   CREDENTIAL PREVIEW
+========================================================= */
+
+.credential-preview {
+  margin-top: 12px;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      2,
+      minmax(0, 1fr)
+    );
+
+  gap: 9px;
+}
+
+.credential-preview div {
+  padding:
+    10px
+    11px;
+
+  border:
+    1px solid #eaecf0;
+
+  border-radius: 9px;
+
+  background: #f9fafb;
+
+  color: #475467;
+
+  font-size: 11px;
+
+  font-weight: 650;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+}
+
+.credential-preview span {
+  width: 21px;
+  height: 21px;
+
+  border-radius: 50%;
+
+  background: #dcfae6;
+
+  color: #16a34a;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-size: 9px;
+
+  font-weight: 800;
+}
+
+/* =========================================================
+   AUTH FLOW
+========================================================= */
+
+.icici-auth-flow {
+  margin-top: 24px;
+
+  padding:
+    20px
+    18px;
+
+  border:
+    1px solid #d1fadf;
+
+  border-radius: 16px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #f6fef9,
+      #ffffff
+    );
+}
+
+.flow-title {
+  margin-bottom: 14px;
+
+  text-align: center;
+
+  color: #344054;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.8px;
+}
+
+.flow-item {
+  min-height: 42px;
+
+  padding:
+    10px
+    13px;
+
+  border:
+    1px solid #e4e7ec;
+
+  border-radius: 10px;
+
+  background: #ffffff;
+
+  color: #475467;
+
+  font-size: 11px;
+
+  font-weight: 650;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+}
+
+.flow-item span {
+  width: 23px;
+  height: 23px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: #f2f4f7;
+
+  color: #667085;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-size: 9px;
+
+  font-weight: 800;
+}
+
+.flow-arrow {
+  height: 24px;
+
+  color: #98a2b3;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-size: 13px;
+}
+
+/* =========================================================
+   SUCCESS FLOW
+========================================================= */
+
+.flow-success {
+  border-color: #abefc6;
+
+  background: #ecfdf3;
+
+  color: #15803d;
+}
+
+.flow-success span {
+  background: #16a34a;
+
+  color: #ffffff;
+}
+
+/* =========================================================
+   WARNING
+========================================================= */
+
+.learn-warning {
+  margin-top: 18px;
+
+  padding:
+    14px
+    15px;
+
+  border:
+    1px solid #d1fadf;
+
+  border-radius: 13px;
+
+  background: #f6fef9;
+
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 11px;
+}
+
+.warning-lock {
+  width: 30px;
+  height: 30px;
+
+  flex-shrink: 0;
+
+  border-radius: 9px;
+
+  background: #dcfae6;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-size: 13px;
+}
+
+.learn-warning p {
+  margin: 0;
+
+  color: #667085;
+
+  font-size: 10px;
+
+  line-height: 1.6;
+}
+
+/* =========================================================
+   DONE BUTTON
+========================================================= */
+
+.learn-modal-done {
+  width: 100%;
+
+  height: 51px;
+
+  margin-top: 20px;
+
+  border: none;
+
+  border-radius: 12px;
+
+  background: #16a34a;
+
+  color: #ffffff;
+
+  font-family: inherit;
+
+  font-size: 12px;
+
+  font-weight: 750;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.learn-modal-done:hover {
+  background: #15803d;
+
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 8px 18px
+    rgba(
+      22,
+      163,
+      74,
+      0.18
+    );
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .learn-modal-overlay {
+    padding:
+      20px
+      14px;
+  }
+
+  .learn-modal {
+    padding:
+      32px
+      24px
+      28px;
+  }
+
+  .learn-modal h2 {
+    font-size: 22px;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+  .learn-modal-overlay {
+    padding: 10px;
+  }
+
+  .learn-modal {
+    padding:
+      28px
+      17px
+      22px;
+
+    border-radius: 19px;
+  }
+
+  .learn-modal-close {
+    top: 13px;
+    right: 13px;
+  }
+
+  .learn-modal-icon {
+    width: 56px;
+    height: 56px;
+  }
+
+  .learn-modal h2 {
+    padding-right: 25px;
+
+    font-size: 20px;
+  }
+
+  .learn-step {
+    padding:
+      15px
+      13px;
+
+    gap: 11px;
+  }
+
+  .step-number {
+    width: 28px;
+    height: 28px;
+  }
+
+  .credential-preview {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+.hdfc-modal-logo {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+}
+
+
+.hdfc-auth-flow {
+  margin-top: 24px;
+
+  padding:
+    20px
+    18px;
+
+  border:
+    1px solid #d1fadf;
+
+  border-radius: 16px;
+
+  background: #f6fef9;
+}

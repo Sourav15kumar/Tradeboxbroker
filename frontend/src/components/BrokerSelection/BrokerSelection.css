@@ -29,12 +29,11 @@
   justify-content: center;
 }
 
-
 /* MAIN */
 
 .broker-container {
   width: 100%;
-  max-width: 900px;
+  max-width: 1500px;
 
   padding: 72px 24px 60px;
 
@@ -43,12 +42,10 @@
   align-items: center;
 }
 
-
 /* HEADER */
 
 .broker-header {
   text-align: center;
-
   margin-bottom: 46px;
 }
 
@@ -89,7 +86,6 @@
   color: #667085;
 }
 
-
 /* BROKER GRID */
 
 .broker-grid {
@@ -98,13 +94,12 @@
   display: grid;
 
   grid-template-columns:
-    repeat(2, minmax(0, 310px));
+    repeat(4, minmax(0, 1fr));
 
-  justify-content: center;
+  gap: 22px;
 
-  gap: 24px;
+  align-items: stretch;
 }
-
 
 /* BROKER CARD */
 
@@ -112,7 +107,7 @@
   position: relative;
 
   width: 100%;
-  min-height: 300px;
+  min-height: 285px;
 
   border: 1px solid #e4e7ec;
 
@@ -120,10 +115,11 @@
 
   background: #ffffff;
 
-  padding: 32px 28px;
+  padding: 30px 24px;
 
   display: flex;
   flex-direction: column;
+
   align-items: center;
   justify-content: center;
 
@@ -141,7 +137,6 @@
     border-color 0.22s ease;
 }
 
-
 /* HOVER */
 
 .broker-card:hover {
@@ -154,19 +149,17 @@
     0 24px 55px rgba(16, 24, 40, 0.10);
 }
 
-
 /* CLICK */
 
 .broker-card:active {
   transform: translateY(-2px);
 }
 
-
 /* IMAGE */
 
 .broker-image-box {
-  width: 112px;
-  height: 112px;
+  width: 100px;
+  height: 100px;
 
   border-radius: 22px;
 
@@ -184,14 +177,13 @@
 }
 
 .broker-image-box img {
-  width: 86px;
-  height: 86px;
+  width: 76px;
+  height: 76px;
 
   object-fit: contain;
 
   display: block;
 }
-
 
 /* CONTENT */
 
@@ -202,7 +194,8 @@
 .broker-content h2 {
   margin: 0;
 
-  font-size: 21px;
+  font-size: 20px;
+
   font-weight: 650;
 
   letter-spacing: -0.3px;
@@ -213,19 +206,21 @@
 .broker-content p {
   margin: 8px 0 0;
 
+  min-height: 38px;
+
   font-size: 13px;
+  line-height: 1.45;
 
   color: #667085;
 }
-
 
 /* ARROW */
 
 .connect-arrow {
   position: absolute;
 
-  right: 22px;
-  bottom: 20px;
+  right: 20px;
+  bottom: 18px;
 
   width: 34px;
   height: 34px;
@@ -252,7 +247,6 @@
 
   background: #1d2939;
 }
-
 
 /* SECURITY */
 
@@ -284,14 +278,28 @@
   justify-content: center;
 
   font-size: 11px;
+
   font-weight: 700;
 }
 
+/* LARGE TABLET */
+
+@media (max-width: 1100px) {
+  .broker-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 310px));
+
+    justify-content: center;
+  }
+
+  .broker-container {
+    max-width: 900px;
+  }
+}
 
 /* TABLET */
 
 @media (max-width: 720px) {
-
   .broker-container {
     padding: 55px 20px 45px;
   }
@@ -319,11 +327,9 @@
   }
 }
 
-
 /* MOBILE */
 
 @media (max-width: 400px) {
-
   .broker-container {
     padding: 45px 16px 40px;
   }
