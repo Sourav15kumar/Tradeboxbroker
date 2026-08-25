@@ -1,0 +1,761 @@
+/* =========================================================
+   ANAND RATHI LEARN MORE MODAL
+========================================================= */
+
+.ar-learn-overlay {
+  position: fixed;
+  inset: 0;
+
+  z-index: 2000;
+
+  padding: 20px;
+
+  background:
+    rgba(15, 23, 42, 0.42);
+
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.ar-learn-modal {
+  width: 100%;
+  max-width: 540px;
+  max-height: 90vh;
+
+  padding: 30px;
+
+  position: relative;
+
+  overflow-y: auto;
+
+  background: #ffffff;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 22px;
+
+  box-shadow:
+    0 30px 80px
+    rgba(15, 23, 42, 0.20);
+
+  animation:
+    arModalOpen
+    0.2s ease-out;
+}
+
+
+/* =========================================================
+   OPEN ANIMATION
+========================================================= */
+
+@keyframes arModalOpen {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(10px)
+      scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+}
+
+
+/* =========================================================
+   CLOSE BUTTON
+========================================================= */
+
+.ar-learn-close {
+  position: absolute;
+
+  top: 18px;
+  right: 18px;
+
+  width: 32px;
+  height: 32px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: #f3f4f6;
+
+  color: #667085;
+
+  font-family: inherit;
+  font-size: 20px;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+.ar-learn-close:hover {
+  background: #e5e7eb;
+
+  color: #111827;
+
+  transform: rotate(4deg);
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.ar-learn-logo {
+  width: 58px;
+  height: 58px;
+
+  padding: 7px;
+
+  border: 1px solid #d1fae5;
+  border-radius: 16px;
+
+  background: #f0fdf4;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+}
+
+
+.ar-learn-logo img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  display: block;
+}
+
+
+/* =========================================================
+   LABEL
+========================================================= */
+
+.ar-learn-label {
+  margin-top: 18px;
+
+  color: #16a34a;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 0.16em;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.ar-learn-modal h2 {
+  margin:
+    7px
+    0
+    8px;
+
+  padding-right: 36px;
+
+  color: #111827;
+
+  font-size: 23px;
+  font-weight: 750;
+
+  letter-spacing: -0.03em;
+
+  line-height: 1.25;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.ar-learn-description {
+  margin:
+    0
+    0
+    22px;
+
+  color: #7b8493;
+
+  font-size: 12px;
+
+  line-height: 1.65;
+}
+
+
+/* =========================================================
+   STEPS
+========================================================= */
+
+.ar-learn-step {
+  padding:
+    14px
+    0;
+
+  border-bottom:
+    1px solid #f0f1f3;
+
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 12px;
+}
+
+
+.ar-learn-step:last-of-type {
+  border-bottom: none;
+}
+
+
+/* =========================================================
+   STEP NUMBER
+========================================================= */
+
+.ar-step-number {
+  width: 29px;
+  height: 29px;
+
+  flex-shrink: 0;
+
+  border-radius: 9px;
+
+  background: #f0fdf4;
+
+  color: #16a34a;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 11px;
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   STEP CONTENT
+========================================================= */
+
+.ar-learn-step > div:last-child {
+  flex: 1;
+  min-width: 0;
+}
+
+
+.ar-learn-step strong {
+  display: block;
+
+  color: #111827;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  line-height: 1.45;
+}
+
+
+.ar-learn-step p {
+  margin:
+    5px
+    0
+    0;
+
+  color: #7b8493;
+
+  font-size: 11px;
+
+  line-height: 1.6;
+}
+
+
+.ar-learn-step b {
+  color: #374151;
+
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   OFFICIAL LINKS
+========================================================= */
+
+.ar-learn-link {
+  display: inline-flex;
+  align-items: center;
+
+  margin-top: 9px;
+
+  color: #16a34a;
+
+  font-size: 11px;
+  font-weight: 750;
+
+  text-decoration: none;
+
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+.ar-learn-link:hover {
+  color: #15803d;
+
+  text-decoration: underline;
+
+  transform: translateX(2px);
+}
+
+
+/* =========================================================
+   VALUE BOX
+========================================================= */
+
+.ar-value-box {
+  margin-top: 9px;
+
+  padding:
+    10px
+    12px;
+
+  border: 1px solid #dfe3e8;
+  border-radius: 9px;
+
+  background: #f8fafc;
+
+  color: #374151;
+
+  font-family:
+    Consolas,
+    "Courier New",
+    monospace;
+
+  font-size: 10px;
+  font-weight: 650;
+
+  line-height: 1.55;
+
+  word-break: break-word;
+}
+
+
+/* =========================================================
+   SMALL NOTE
+========================================================= */
+
+.ar-small-note {
+  color: #98a2b3 !important;
+
+  font-size: 10px !important;
+
+  line-height: 1.55 !important;
+}
+
+
+/* =========================================================
+   AUTHENTICATION FLOW BOX
+========================================================= */
+
+.ar-auth-flow {
+  margin-top: 20px;
+
+  padding: 16px;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+
+  background: #f8faf9;
+}
+
+
+/* =========================================================
+   FLOW TITLE
+========================================================= */
+
+.ar-flow-title {
+  margin-bottom: 13px;
+
+  color: #667085;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   FLOW ITEM
+========================================================= */
+
+.ar-flow-item {
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  color: #374151;
+
+  font-size: 11px;
+  font-weight: 650;
+
+  line-height: 1.4;
+}
+
+
+.ar-flow-item span {
+  width: 23px;
+  height: 23px;
+
+  flex-shrink: 0;
+
+  border-radius: 7px;
+
+  background: #ecfdf3;
+
+  color: #16a34a;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 10px;
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   FLOW ARROW
+========================================================= */
+
+.ar-flow-arrow {
+  margin:
+    4px
+    0
+    4px
+    7px;
+
+  color: #a0a7b2;
+
+  font-size: 13px;
+
+  line-height: 1;
+}
+
+
+/* =========================================================
+   FLOW SUCCESS
+========================================================= */
+
+.ar-flow-success {
+  color: #15803d;
+}
+
+
+.ar-flow-success span {
+  background: #dcfce7;
+
+  color: #15803d;
+}
+
+
+/* =========================================================
+   SECURITY WARNING
+========================================================= */
+
+.ar-learn-warning {
+  margin-top: 18px;
+
+  padding: 13px;
+
+  border: 1px solid #edf0f3;
+  border-radius: 12px;
+
+  background: #f8f9fb;
+
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 9px;
+}
+
+
+.ar-learn-warning > span {
+  flex-shrink: 0;
+
+  font-size: 13px;
+}
+
+
+.ar-learn-warning p {
+  margin: 0;
+
+  color: #687386;
+
+  font-size: 10px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   DONE BUTTON
+========================================================= */
+
+.ar-learn-done {
+  width: 100%;
+  height: 46px;
+
+  margin-top: 18px;
+
+  border: none;
+  border-radius: 11px;
+
+  background: #111827;
+
+  color: #ffffff;
+
+  font-family: inherit;
+
+  font-size: 12px;
+  font-weight: 750;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.ar-learn-done:hover {
+  background: #242b38;
+
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 8px 18px
+    rgba(15, 23, 42, 0.12);
+}
+
+
+.ar-learn-done:active {
+  transform: translateY(0);
+}
+
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+.ar-learn-modal::-webkit-scrollbar {
+  width: 6px;
+}
+
+
+.ar-learn-modal::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+
+.ar-learn-modal::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+
+  border-radius: 10px;
+}
+
+
+.ar-learn-modal::-webkit-scrollbar-thumb:hover {
+  background: #b9bec7;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 650px) {
+
+  .ar-learn-overlay {
+    padding: 16px;
+  }
+
+
+  .ar-learn-modal {
+    max-width: 520px;
+
+    padding: 26px;
+  }
+
+
+  .ar-learn-modal h2 {
+    font-size: 22px;
+  }
+
+
+  .ar-auth-flow {
+    padding: 14px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 520px) {
+
+  .ar-learn-overlay {
+    padding: 12px;
+
+    align-items: center;
+  }
+
+
+  .ar-learn-modal {
+    max-height: 92vh;
+
+    padding:
+      24px
+      20px;
+
+    border-radius: 18px;
+  }
+
+
+  .ar-learn-close {
+    top: 14px;
+    right: 14px;
+  }
+
+
+  .ar-learn-logo {
+    width: 52px;
+    height: 52px;
+
+    border-radius: 14px;
+  }
+
+
+  .ar-learn-label {
+    margin-top: 15px;
+
+    font-size: 9px;
+  }
+
+
+  .ar-learn-modal h2 {
+    padding-right: 28px;
+
+    font-size: 21px;
+  }
+
+
+  .ar-learn-description {
+    margin-bottom: 18px;
+
+    font-size: 11px;
+  }
+
+
+  .ar-learn-step {
+    padding:
+      12px
+      0;
+
+    gap: 10px;
+  }
+
+
+  .ar-step-number {
+    width: 27px;
+    height: 27px;
+
+    border-radius: 8px;
+
+    font-size: 10px;
+  }
+
+
+  .ar-learn-step strong {
+    font-size: 11px;
+  }
+
+
+  .ar-learn-step p {
+    font-size: 10px;
+  }
+
+
+  .ar-value-box {
+    padding:
+      9px
+      10px;
+
+    font-size: 9px;
+  }
+
+
+  .ar-auth-flow {
+    margin-top: 16px;
+
+    padding: 13px;
+  }
+
+
+  .ar-flow-item {
+    font-size: 10px;
+  }
+
+
+  .ar-learn-warning {
+    padding: 11px;
+  }
+
+
+  .ar-learn-done {
+    height: 44px;
+
+    font-size: 11px;
+  }
+
+}

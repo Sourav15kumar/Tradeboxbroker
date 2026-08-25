@@ -1,0 +1,573 @@
+/* =========================================================
+   MOTILAL LEARN MORE MODAL
+========================================================= */
+
+.motilal-learn-overlay {
+  position: fixed;
+  inset: 0;
+
+  z-index: 1000;
+
+  padding: 20px;
+
+  background:
+    rgba(15, 23, 42, 0.42);
+
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.motilal-learn-modal {
+  width: 100%;
+  max-width: 540px;
+
+  max-height: 90vh;
+
+  padding: 30px;
+
+  position: relative;
+
+  overflow-y: auto;
+
+  background: #ffffff;
+
+  border:
+    1px solid #e5e7eb;
+
+  border-radius: 22px;
+
+  box-shadow:
+    0 30px 80px
+    rgba(15, 23, 42, 0.20);
+
+  animation:
+    motilalModalOpen
+    0.2s ease-out;
+}
+
+
+@keyframes motilalModalOpen {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(10px)
+      scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+}
+
+
+/* =========================================================
+   CLOSE
+========================================================= */
+
+.motilal-learn-close {
+  position: absolute;
+
+  top: 18px;
+  right: 18px;
+
+  width: 32px;
+  height: 32px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background: #f3f4f6;
+
+  color: #667085;
+
+  font-size: 20px;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+
+.motilal-learn-close:hover {
+  background: #e5e7eb;
+
+  color: #111827;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.motilal-learn-logo-box {
+  width: 58px;
+  height: 58px;
+
+  padding: 7px;
+
+  border-radius: 16px;
+
+  background: #ffffff;
+
+  border:
+    1px solid #e5e7eb;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+}
+
+
+.motilal-learn-logo-box img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  display: block;
+}
+
+
+/* =========================================================
+   LABEL
+========================================================= */
+
+.motilal-learn-label {
+  margin-top: 18px;
+
+  color: #16a34a;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.16em;
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.motilal-learn-modal h2 {
+  margin:
+    7px
+    0
+    8px;
+
+  color: #111827;
+
+  font-size: 23px;
+
+  letter-spacing: -0.03em;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.motilal-learn-description {
+  margin:
+    0
+    0
+    22px;
+
+  color: #7b8493;
+
+  font-size: 12px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   STEPS
+========================================================= */
+
+.motilal-learn-step {
+  padding:
+    13px
+    0;
+
+  border-bottom:
+    1px solid #f0f1f3;
+
+  display: flex;
+
+  gap: 12px;
+}
+
+
+.motilal-step-number {
+  width: 29px;
+  height: 29px;
+
+  flex-shrink: 0;
+
+  border-radius: 9px;
+
+  background: #f0fdf4;
+
+  color: #16a34a;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 11px;
+
+  font-weight: 800;
+}
+
+
+.motilal-learn-step strong {
+  display: block;
+
+  color: #111827;
+
+  font-size: 12px;
+}
+
+
+.motilal-learn-step p {
+  margin:
+    5px
+    0
+    0;
+
+  color: #7b8493;
+
+  font-size: 11px;
+
+  line-height: 1.55;
+}
+
+
+.motilal-learn-step b {
+  color: #374151;
+}
+
+
+/* =========================================================
+   API LINK
+========================================================= */
+
+.motilal-learn-link {
+  display: inline-flex;
+
+  margin-top: 8px;
+
+  color: #16a34a;
+
+  font-size: 11px;
+
+  font-weight: 750;
+
+  text-decoration: none;
+}
+
+
+.motilal-learn-link:hover {
+  color: #15803d;
+
+  text-decoration: underline;
+}
+
+
+/* =========================================================
+   VALUE BOX
+========================================================= */
+
+.motilal-value-box {
+  margin-top: 9px;
+
+  padding:
+    10px
+    12px;
+
+  border:
+    1px solid #dfe3e8;
+
+  border-radius: 9px;
+
+  background: #f8fafc;
+
+  color: #374151;
+
+  font-family:
+    Consolas,
+    "Courier New",
+    monospace;
+
+  font-size: 10px;
+
+  word-break: break-word;
+}
+
+
+.motilal-small-note {
+  color: #9aa1ad !important;
+
+  font-size: 10px !important;
+}
+
+
+/* =========================================================
+   AUTH FLOW
+========================================================= */
+
+.motilal-learn-flow {
+  margin-top: 20px;
+
+  padding: 16px;
+
+  border:
+    1px solid #e5e7eb;
+
+  border-radius: 14px;
+
+  background: #f8faf9;
+}
+
+
+.motilal-flow-title {
+  margin-bottom: 13px;
+
+  color: #667085;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+}
+
+
+.motilal-flow-item {
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  color: #374151;
+
+  font-size: 11px;
+
+  font-weight: 650;
+}
+
+
+.motilal-flow-item span {
+  width: 23px;
+  height: 23px;
+
+  flex-shrink: 0;
+
+  border-radius: 7px;
+
+  background: #ecfdf3;
+
+  color: #16a34a;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 10px;
+
+  font-weight: 800;
+}
+
+
+.motilal-flow-arrow {
+  margin:
+    4px
+    0
+    4px
+    7px;
+
+  color: #a0a7b2;
+
+  font-size: 13px;
+}
+
+
+.motilal-flow-success {
+  color: #15803d;
+}
+
+
+.motilal-flow-success span {
+  background: #dcfce7;
+
+  color: #15803d;
+}
+
+
+/* =========================================================
+   WARNING
+========================================================= */
+
+.motilal-learn-warning {
+  margin-top: 18px;
+
+  padding: 13px;
+
+  border:
+    1px solid #edf0f3;
+
+  border-radius: 12px;
+
+  background: #f8f9fb;
+
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 9px;
+}
+
+
+.motilal-learn-warning > span {
+  flex-shrink: 0;
+}
+
+
+.motilal-learn-warning p {
+  margin: 0;
+
+  color: #687386;
+
+  font-size: 10px;
+
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   DONE BUTTON
+========================================================= */
+
+.motilal-learn-done {
+  width: 100%;
+
+  height: 46px;
+
+  margin-top: 18px;
+
+  border: none;
+
+  border-radius: 11px;
+
+  background: #111827;
+
+  color: #ffffff;
+
+  font-family: inherit;
+
+  font-size: 12px;
+
+  font-weight: 750;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+.motilal-learn-done:hover {
+  background: #242b38;
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+.motilal-learn-modal::-webkit-scrollbar {
+  width: 6px;
+}
+
+
+.motilal-learn-modal::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+
+.motilal-learn-modal::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+
+  border-radius: 10px;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 520px) {
+
+  .motilal-learn-overlay {
+    padding: 12px;
+  }
+
+
+  .motilal-learn-modal {
+    max-height: 92vh;
+
+    padding: 24px;
+
+    border-radius: 18px;
+  }
+
+
+  .motilal-learn-modal h2 {
+    padding-right: 25px;
+
+    font-size: 21px;
+  }
+
+
+  .motilal-learn-description {
+    font-size: 11px;
+  }
+
+
+  .motilal-learn-flow {
+    margin-top: 16px;
+
+    padding: 13px;
+  }
+}

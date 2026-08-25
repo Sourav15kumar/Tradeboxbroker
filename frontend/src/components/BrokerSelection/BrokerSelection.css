@@ -29,11 +29,14 @@
   justify-content: center;
 }
 
-/* MAIN */
+
+/* =========================================================
+   MAIN
+========================================================= */
 
 .broker-container {
   width: 100%;
-  max-width: 1500px;
+  max-width: 1600px;
 
   padding: 72px 24px 60px;
 
@@ -42,7 +45,10 @@
   align-items: center;
 }
 
-/* HEADER */
+
+/* =========================================================
+   HEADER
+========================================================= */
 
 .broker-header {
   text-align: center;
@@ -56,7 +62,6 @@
 
   font-size: 11px;
   font-weight: 700;
-
   letter-spacing: 1.6px;
 
   color: #667085;
@@ -69,7 +74,6 @@
   line-height: 1.15;
 
   font-weight: 700;
-
   letter-spacing: -1.2px;
 
   color: #101828;
@@ -86,27 +90,33 @@
   color: #667085;
 }
 
-/* BROKER GRID */
+
+/* =========================================================
+   BROKER GRID
+========================================================= */
 
 .broker-grid {
-  width: 100%;
-
   display: grid;
 
   grid-template-columns:
-    repeat(4, minmax(0, 1fr));
+    repeat(5, minmax(0, 1fr));
 
-  gap: 22px;
+  gap: 18px;
 
-  align-items: stretch;
+  width: 100%;
 }
 
-/* BROKER CARD */
+
+/* =========================================================
+   BROKER CARD
+========================================================= */
 
 .broker-card {
   position: relative;
 
   width: 100%;
+  min-width: 0;
+
   min-height: 285px;
 
   border: 1px solid #e4e7ec;
@@ -115,7 +125,7 @@
 
   background: #ffffff;
 
-  padding: 30px 24px;
+  padding: 30px 20px;
 
   display: flex;
   flex-direction: column;
@@ -127,6 +137,8 @@
 
   font-family: inherit;
 
+  text-align: center;
+
   box-shadow:
     0 4px 8px rgba(16, 24, 40, 0.04),
     0 16px 40px rgba(16, 24, 40, 0.06);
@@ -137,7 +149,10 @@
     border-color 0.22s ease;
 }
 
-/* HOVER */
+
+/* =========================================================
+   HOVER
+========================================================= */
 
 .broker-card:hover {
   transform: translateY(-6px);
@@ -149,13 +164,29 @@
     0 24px 55px rgba(16, 24, 40, 0.10);
 }
 
-/* CLICK */
+
+/* =========================================================
+   CLICK
+========================================================= */
 
 .broker-card:active {
   transform: translateY(-2px);
 }
 
-/* IMAGE */
+
+/* =========================================================
+   FOCUS
+========================================================= */
+
+.broker-card:focus-visible {
+  outline: 3px solid rgba(16, 24, 40, 0.15);
+  outline-offset: 3px;
+}
+
+
+/* =========================================================
+   IMAGE
+========================================================= */
 
 .broker-image-box {
   width: 100px;
@@ -174,6 +205,8 @@
   margin-bottom: 22px;
 
   overflow: hidden;
+
+  flex-shrink: 0;
 }
 
 .broker-image-box img {
@@ -185,10 +218,17 @@
   display: block;
 }
 
-/* CONTENT */
+
+/* =========================================================
+   CONTENT
+========================================================= */
 
 .broker-content {
+  width: 100%;
+
   text-align: center;
+
+  padding-bottom: 20px;
 }
 
 .broker-content h2 {
@@ -209,12 +249,16 @@
   min-height: 38px;
 
   font-size: 13px;
+
   line-height: 1.45;
 
   color: #667085;
 }
 
-/* ARROW */
+
+/* =========================================================
+   ARROW
+========================================================= */
 
 .connect-arrow {
   position: absolute;
@@ -248,12 +292,16 @@
   background: #1d2939;
 }
 
-/* SECURITY */
+
+/* =========================================================
+   SECURITY
+========================================================= */
 
 .secure-note {
   margin-top: 30px;
 
   display: flex;
+
   align-items: center;
 
   gap: 8px;
@@ -282,26 +330,69 @@
   font-weight: 700;
 }
 
-/* LARGE TABLET */
 
-@media (max-width: 1100px) {
+/* =========================================================
+   LARGE DESKTOP
+   5 BROKERS PER ROW
+========================================================= */
+
+@media (min-width: 1301px) {
+
   .broker-grid {
     grid-template-columns:
-      repeat(2, minmax(0, 310px));
-
-    justify-content: center;
+      repeat(5, minmax(0, 1fr));
   }
+
+}
+
+
+/* =========================================================
+   SMALL DESKTOP / LAPTOP
+========================================================= */
+
+@media (max-width: 1300px) {
+
+  .broker-container {
+    max-width: 1200px;
+  }
+
+  .broker-grid {
+    grid-template-columns:
+      repeat(4, minmax(0, 1fr));
+  }
+
+}
+
+
+/* =========================================================
+   LARGE TABLET
+========================================================= */
+
+@media (max-width: 1050px) {
 
   .broker-container {
     max-width: 900px;
   }
+
+  .broker-grid {
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
+  }
+
 }
 
-/* TABLET */
 
-@media (max-width: 720px) {
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 780px) {
+
   .broker-container {
-    padding: 55px 20px 45px;
+    padding:
+      55px
+      20px
+      45px;
   }
 
   .broker-header {
@@ -317,21 +408,30 @@
   }
 
   .broker-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
 
-    width: min(100%, 310px);
+    gap: 16px;
   }
 
   .broker-card {
-    min-height: 285px;
+    min-height: 270px;
   }
+
 }
 
-/* MOBILE */
 
-@media (max-width: 400px) {
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 520px) {
+
   .broker-container {
-    padding: 45px 16px 40px;
+    padding:
+      45px
+      16px
+      40px;
   }
 
   .broker-header h1 {
@@ -343,10 +443,15 @@
   }
 
   .broker-grid {
+    grid-template-columns: 1fr;
+
     width: 100%;
   }
 
   .broker-card {
     width: 100%;
+
+    min-height: 260px;
   }
+
 }

@@ -1,112 +1,53 @@
-// require("dotenv").config();
-
-// const express = require("express");
-// const cors = require("cors");
-
-// const zerodhaRoutes =
-//   require("./routes/zerodhaRoutes");
-
-// const app = express();
-
-// const PORT =
-//   process.env.PORT || 5000;
-
-// app.use(
-//   cors({
-//     origin: [
-//       "http://localhost:5173",
-//       "https://uat.tradeboxlive.com",
-//     ],
-//     credentials: true,
-//   })
-// );
-
-// app.use(express.json());
-
-// app.get("/", (req, res) => {
-//   res.json({
-//     success: true,
-//     message: "Tradebox Zerodha Backend Running",
-//   });
-// });
-
-// app.use(
-//   "/api/zerodha",
-//   zerodhaRoutes
-// );
-
-// app.listen(PORT, () => {
-//   console.log("");
-//   console.log("================================");
-//   console.log("TRADEBOX ZERODHA BACKEND");
-//   console.log("================================");
-//   console.log(
-//     `Server: http://localhost:${PORT}`
-//   );
-//   console.log("Status: RUNNING");
-//   console.log("================================");
-//   console.log("");
-// });
-
 require("dotenv").config();
 
-const express =
-  require("express");
-
-const cors =
-  require("cors");
+const express = require("express");
+const cors = require("cors");
+const cookieParser = require("cookie-parser");
 
 
 // ============================================================
-// EXISTING BROKERS
+// BROKER ROUTES
 // ============================================================
 
 const zerodhaRoutes =
-  require(
-    "./routes/zerodhaRoutes"
-  );
+  require("./routes/zerodhaRoutes");
 
 const growwRoutes =
-  require(
-    "./routes/growwRoutes"
-  );
+  require("./routes/growwRoutes");
 
 const upstoxRoutes =
-  require(
-    "./routes/upstoxRoutes"
-  );
-
-
-  const iciciRoutes =
-  require("./routes/iciciRoutes");
-
-
-// ============================================================
-// ANGEL ONE
-// ============================================================
+  require("./routes/upstoxRoutes");
 
 const angelOneRoutes =
-  require(
-    "./routes/angelOneRoutes"
-  );
+  require("./routes/angelOneRoutes");
 
 const kotakRoutes =
   require("./routes/kotakRoutes");
 
+const iciciRoutes =
+  require("./routes/iciciRoutes");
+
+const jmFinancialRoutes =
+  require("./routes/jmFinancialRoutes");
+
+const fyersRoutes =
+  require("./routes/fyersRoutes");
+
+const motilalRoutes =
+  require("./routes/motilalRoutes");
+
+const anandRathiRoutes =
+  require("./routes/anandRathiRoutes");
+
+
+// ============================================================
+// EXPRESS APP
+// ============================================================
 
 const app = express();
 
-  app.use(
-  express.urlencoded({
-    extended: true,
-  })
-);
-
-
-
 const PORT =
-  process.env.PORT ||
-  5000;
+  process.env.PORT || 5000;
 
 
 // ============================================================
@@ -127,12 +68,10 @@ app.use(
 
 
 // ============================================================
-// BODY PARSER
+// BODY PARSERS
 // ============================================================
 
-app.use(
-  express.json()
-);
+app.use(express.json());
 
 app.use(
   express.urlencoded({
@@ -142,27 +81,29 @@ app.use(
 
 
 // ============================================================
+// COOKIE PARSER
+// ============================================================
+
+app.use(cookieParser());
+
+
+// ============================================================
 // HEALTH CHECK
 // ============================================================
 
-app.get(
-  "/",
-  (req, res) => {
+app.get("/", (req, res) => {
 
-    res.json({
-      success: true,
+  res.json({
+    success: true,
+    message:
+      "Tradebox Broker Backend Running",
+  });
 
-      message:
-        "Tradebox Broker Backend Running",
-    });
-
-  }
-);
+});
 
 
 // ============================================================
 // ZERODHA
-// EXISTING
 // ============================================================
 
 app.use(
@@ -173,7 +114,7 @@ app.use(
 
 // ============================================================
 // GROWW
-// EXISTING
+// API KEY + API SECRET AUTHENTICATION
 // ============================================================
 
 app.use(
@@ -184,7 +125,6 @@ app.use(
 
 // ============================================================
 // UPSTOX
-// EXISTING
 // ============================================================
 
 app.use(
@@ -195,7 +135,6 @@ app.use(
 
 // ============================================================
 // ANGEL ONE
-// NEW
 // ============================================================
 
 app.use(
@@ -203,21 +142,67 @@ app.use(
   angelOneRoutes
 );
 
+
+// ============================================================
+// KOTAK NEO
+// ============================================================
+
 app.use(
   "/api/kotak",
   kotakRoutes
 );
 
-// ============================================================
-// icici routes ok
-// NEW
-// ============================================================
 
+// ============================================================
+// ICICI DIRECT
+// ============================================================
 
 app.use(
   "/api/icici",
   iciciRoutes
 );
+
+
+// ============================================================
+// JM FINANCIAL
+// ============================================================
+
+app.use(
+  "/api/jmfinancial",
+  jmFinancialRoutes
+);
+
+
+// ============================================================
+// FYERS
+// ============================================================
+
+app.use(
+  "/api/fyers",
+  fyersRoutes
+);
+
+
+// ============================================================
+// MOTILAL OSWAL
+// ============================================================
+
+app.use(
+  "/api/motilal",
+  motilalRoutes
+);
+
+
+// ============================================================
+// ANAND RATHI
+// ============================================================
+
+app.use(
+  "/api/anandrathi",
+  anandRathiRoutes
+);
+
+
 // ============================================================
 // START SERVER
 // ============================================================
@@ -268,6 +253,30 @@ app.listen(
 
     console.log(
       " ✓ Angel One"
+    );
+
+    console.log(
+      " ✓ Kotak Neo"
+    );
+
+    console.log(
+      " ✓ ICICI Direct"
+    );
+
+    console.log(
+      " ✓ JM Financial"
+    );
+
+    console.log(
+      " ✓ FYERS"
+    );
+
+    console.log(
+      " ✓ Motilal Oswal"
+    );
+
+    console.log(
+      " ✓ Anand Rathi"
     );
 
     console.log(

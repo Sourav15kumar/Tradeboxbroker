@@ -1,78 +1,98 @@
+const axios =
+  require("axios");
+
+const crypto =
+  require("crypto");
+
+
 const GROWW_ACCESS_TOKEN_URL =
   "https://api.groww.in/v1/token/api/access";
 
-async function generateAccessToken(
-  apiKey,
-  totp
+
+function generateChecksum(
+  apiSecret,
+  timestamp
 ) {
-  const response = await fetch(
-    GROWW_ACCESS_TOKEN_URL,
-    {
-      method: "POST",
 
-      headers: {
-        Authorization: `Bearer ${apiKey}`,
-        "Content-Type": "application/json",
-        Accept: "application/json",
-        "X-API-VERSION": "1.0",
-      },
+  const input =
+    apiSecret + timestamp;
 
-      body: JSON.stringify({
-        key_type: "totp",
-        totp: totp,
-      }),
-    }
+
+  return crypto
+    .createHash("sha256")
+    .update(input)
+    .digest("hex");
+
+}
+
+
+function getCurrentTimestamp() {
+
+  return Math.floor(
+    Date.now() / 1000
+  ).toString();
+
+}
+
+
+async function generateAccessToken({
+  apiKey,
+  apiSecret,
+}) {
+
+  const timestamp =
+    getCurrentTimestamp();
+
+
+  const checksum =
+    generateChecksum(
+      apiSecret,
+      timestamp
+    );
+
+
+  console.log(
+    "Groww Timestamp:",
+    timestamp
   );
 
-  let data = null;
 
-  try {
-    data = await response.json();
-  } catch (error) {
-    throw new Error(
-      "Invalid response received from Groww."
-    );
-  }
+  const response =
+    await axios.post(
 
-  /*
-   * Groww API error
-   */
-  if (!response.ok) {
-    console.error(
-      "Groww API HTTP Status:",
-      response.status
-    );
+      GROWW_ACCESS_TOKEN_URL,
 
-    console.error(
-      "Groww API Error:",
-      data
-    );
+      {
+        key_type:
+          "approval",
 
-    const growwMessage =
-      data?.error?.message ||
-      data?.message ||
-      data?.error ||
-      "Groww authentication failed.";
+        checksum,
 
-    throw new Error(growwMessage);
-  }
+        timestamp,
+      },
 
-  /*
-   * Groww should return an access token.
-   */
-  if (!data?.token) {
-    console.error(
-      "Groww response does not contain token:",
-      data
+      {
+        headers: {
+
+          Authorization:
+            `Bearer ${apiKey}`,
+
+          "Content-Type":
+            "application/json",
+
+          Accept:
+            "application/json",
+
+        },
+      }
+
     );
 
-    throw new Error(
-      "Groww did not return an access token."
-    );
-  }
 
-  return data;
+  return response.data;
+
 }
+
 
 module.exports = {
   generateAccessToken,

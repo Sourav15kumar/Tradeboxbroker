@@ -8,11 +8,18 @@ import angelOneImage from "../../assets/brokers/angelone.png";
 import kotakImage from "../../assets/brokers/kotak.png";
 import iciciImage from "../../assets/brokers/icici.png";
 import hdfcImage from "../../assets/brokers/hdfc.png";
+import jmFinancialImage from "../../assets/brokers/jmfinancial.png";
+import fyersImage from "../../assets/brokers/fyers.png";
+import motilalImage from "../../assets/brokers/motilal.png";
+import anandRathiImage from "../../assets/brokers/anandrathi.png";
 
 import "./BrokerSelection.css";
 
+
 function BrokerSelection() {
+
   const navigate = useNavigate();
+
 
   // ==========================================================
   // ZERODHA
@@ -22,6 +29,7 @@ function BrokerSelection() {
     navigate("/login-with-api");
   };
 
+
   // ==========================================================
   // GROWW
   // ==========================================================
@@ -29,6 +37,7 @@ function BrokerSelection() {
   const handleGroww = () => {
     navigate("/groww");
   };
+
 
   // ==========================================================
   // UPSTOX
@@ -38,6 +47,7 @@ function BrokerSelection() {
     navigate("/upstox");
   };
 
+
   // ==========================================================
   // ANGEL ONE
   // ==========================================================
@@ -45,6 +55,7 @@ function BrokerSelection() {
   const handleAngelOne = () => {
     navigate("/angelone");
   };
+
 
   // ==========================================================
   // KOTAK NEO
@@ -54,6 +65,7 @@ function BrokerSelection() {
     navigate("/kotak");
   };
 
+
   // ==========================================================
   // ICICI DIRECT
   // ==========================================================
@@ -62,21 +74,65 @@ function BrokerSelection() {
     navigate("/icici");
   };
 
- // ==========================================================
-  // HDFC BANK
+
   // ==========================================================
+  // HDFC SKY
+  // ==========================================================
+
   const handleHdfc = () => {
-  navigate("/hdfc");
-};
+    navigate("/hdfc");
+  };
+
+
+  // ==========================================================
+  // JM FINANCIAL
+  // ==========================================================
+
+  const handleJMFinancial = () => {
+    navigate("/jmfinancial");
+  };
+
+
+  // ==========================================================
+  // FYERS
+  // ==========================================================
+
+  const handleFyers = () => {
+    navigate("/fyers");
+  };
+
+
+  // ==========================================================
+  // MOTILAL OSWAL
+  // ==========================================================
+
+  const handleMotilal = () => {
+    navigate("/motilal");
+  };
+
+
+  // ==========================================================
+  // ANAND RATHI
+  // ==========================================================
+
+  const handleAnandRathi = () => {
+    navigate("/anandrathi");
+  };
+
+
   return (
+
     <div className="broker-page">
+
       <main className="broker-container">
+
 
         {/* ==================================================
             HEADER
         ================================================== */}
 
         <section className="broker-header">
+
           <span className="broker-eyebrow">
             BROKER INTEGRATION
           </span>
@@ -89,7 +145,9 @@ function BrokerSelection() {
             Connect your broker for seamless execution
             after your approval
           </p>
+
         </section>
+
 
         {/* ==================================================
             BROKER CARDS
@@ -97,214 +155,410 @@ function BrokerSelection() {
 
         <section className="broker-grid">
 
-          {/* ZERODHA */}
+
+          {/* ==================================================
+              ZERODHA
+          ================================================== */}
 
           <button
             type="button"
             className="broker-card"
             onClick={handleZerodha}
           >
+
             <div className="broker-image-box">
+
               <img
                 src={zerodhaImage}
                 alt="Zerodha"
               />
+
             </div>
 
             <div className="broker-content">
-              <h2>Zerodha</h2>
+
+              <h2>
+                Zerodha
+              </h2>
 
               <p>
                 Connect using Kite Connect API
               </p>
+
             </div>
 
-            <div className="connect-arrow">
-              →
-            </div>
+           
+
           </button>
 
-          {/* GROWW */}
+
+          {/* ==================================================
+              GROWW
+          ================================================== */}
 
           <button
             type="button"
             className="broker-card"
             onClick={handleGroww}
           >
+
             <div className="broker-image-box">
+
               <img
                 src={growwImage}
                 alt="Groww"
               />
+
             </div>
 
             <div className="broker-content">
-              <h2>Groww</h2>
+
+              <h2>
+                Groww
+              </h2>
 
               <p>
                 Connect using Groww Trade API
               </p>
+
             </div>
 
-            <div className="connect-arrow">
-              →
-            </div>
+           
+
           </button>
 
-          {/* UPSTOX */}
+
+          {/* ==================================================
+              UPSTOX
+          ================================================== */}
 
           <button
             type="button"
             className="broker-card"
             onClick={handleUpstox}
           >
+
             <div className="broker-image-box">
+
               <img
                 src={upstoxImage}
                 alt="Upstox"
               />
+
             </div>
 
             <div className="broker-content">
-              <h2>Upstox</h2>
+
+              <h2>
+                Upstox
+              </h2>
 
               <p>
                 Connect using Upstox API
               </p>
+
             </div>
 
-            <div className="connect-arrow">
-              →
-            </div>
+           
+
           </button>
 
-          {/* ANGEL ONE */}
+           {/* ==================================================
+              FYERS
+          ================================================== */}
+
+          <button
+            type="button"
+            className="broker-card"
+            onClick={handleFyers}
+          >
+
+            <div className="broker-image-box">
+
+              <img
+                src={fyersImage}
+                alt="FYERS"
+              />
+
+            </div>
+
+            <div className="broker-content">
+
+              <h2>
+                FYERS
+              </h2>
+
+              <p>
+                Connect using FYERS Trading API
+              </p>
+
+            </div>
+
+            
+
+          </button>
+
+          {/* ==================================================
+              ANGEL ONE
+          ================================================== */}
 
           <button
             type="button"
             className="broker-card"
             onClick={handleAngelOne}
           >
+
             <div className="broker-image-box">
+
               <img
                 src={angelOneImage}
                 alt="Angel One"
               />
+
             </div>
 
             <div className="broker-content">
-              <h2>Angel One</h2>
+
+              <h2>
+                Angel One
+              </h2>
 
               <p>
                 Connect using Angel One SmartAPI
               </p>
+
             </div>
 
-            <div className="connect-arrow">
-              →
-            </div>
+           
+
           </button>
 
-          {/* KOTAK NEO */}
+
+          {/* ==================================================
+              KOTAK NEO
+          ================================================== */}
 
           <button
             type="button"
             className="broker-card"
             onClick={handleKotak}
           >
+
             <div className="broker-image-box">
+
               <img
                 src={kotakImage}
                 alt="Kotak Neo"
               />
+
             </div>
 
             <div className="broker-content">
-              <h2>Kotak Neo</h2>
+
+              <h2>
+                Kotak Neo
+              </h2>
 
               <p>
                 Connect using Kotak Neo Trade API
               </p>
+
             </div>
 
-            <div className="connect-arrow">
-              →
-            </div>
+            
+
           </button>
 
-          {/* ICICI DIRECT */}
+
+          {/* ==================================================
+              ICICI DIRECT
+          ================================================== */}
 
           <button
             type="button"
             className="broker-card"
             onClick={handleIcici}
           >
+
             <div className="broker-image-box">
+
               <img
                 src={iciciImage}
                 alt="ICICI Direct"
               />
+
             </div>
 
             <div className="broker-content">
-              <h2>ICICI Direct</h2>
+
+              <h2>
+                ICICI Direct
+              </h2>
 
               <p>
                 Connect using ICICI Breeze API
               </p>
+
             </div>
 
-            <div className="connect-arrow">
-              →
-            </div>
+          
+
           </button>
 
 
+          {/* ==================================================
+              HDFC SKY
+          ================================================== */}
 
-{/* hdfc start here */}
+          <button
+            type="button"
+            className="broker-card"
+            onClick={handleHdfc}
+          >
 
-  <button
-  type="button"
-  className="broker-card"
-  onClick={handleHdfc}
->
+            <div className="broker-image-box">
 
-  <div className="broker-image-box">
+              <img
+                src={hdfcImage}
+                alt="HDFC SKY"
+              />
 
-    <img
-      src={hdfcImage}
-      alt="HDFC SKY"
-    />
+            </div>
 
-  </div>
+            <div className="broker-content">
 
+              <h2>
+                HDFC SKY
+              </h2>
 
-  <div className="broker-content">
+              <p>
+                Connect using HDFC SKY Open API
+              </p>
 
-    <h2>
-      HDFC SKY
-    </h2>
+            </div>
 
-    <p>
-      Connect using HDFC SKY Open API
-    </p>
+           
 
-  </div>
+          </button>
 
 
-  <div className="connect-arrow">
-    →
-  </div>
+          {/* ==================================================
+              JM FINANCIAL
+          ================================================== */}
 
-</button>
+          <button
+            type="button"
+            className="broker-card"
+            onClick={handleJMFinancial}
+          >
+
+            <div className="broker-image-box">
+
+              <img
+                src={jmFinancialImage}
+                alt="JM Financial"
+              />
+
+            </div>
+
+            <div className="broker-content">
+
+              <h2>
+                JM Financial
+              </h2>
+
+              <p>
+                Connect using JM Financial XTS API
+              </p>
+
+            </div>
+
+          
+
+          </button>
+
+
+         
+
+          {/* ==================================================
+              MOTILAL OSWAL
+          ================================================== */}
+
+          <button
+            type="button"
+            className="broker-card"
+            onClick={handleMotilal}
+          >
+
+            <div className="broker-image-box">
+
+              <img
+                src={motilalImage}
+                alt="Motilal Oswal"
+              />
+
+            </div>
+
+            <div className="broker-content">
+
+              <h2>
+                Motilal Oswal
+              </h2>
+
+              <p>
+                Connect using Motilal Oswal Trading API
+              </p>
+
+            </div>
+
+           
+
+          </button>
+
+
+          {/* ==================================================
+              ANAND RATHI
+          ================================================== */}
+
+          <button
+            type="button"
+            className="broker-card"
+            onClick={handleAnandRathi}
+          >
+
+            <div className="broker-image-box">
+
+              <img
+                src={anandRathiImage}
+                alt="Anand Rathi"
+              />
+
+            </div>
+
+            <div className="broker-content">
+
+              <h2>
+                Anand Rathi
+              </h2>
+
+              <p>
+                Connect using Interactive Order API
+              </p>
+
+            </div>
+
+
+          </button>
 
         </section>
+
 
         {/* ==================================================
             SECURITY
         ================================================== */}
 
         <div className="secure-note">
+
           <span className="secure-icon">
             ✓
           </span>
@@ -312,11 +566,14 @@ function BrokerSelection() {
           <span>
             Secure broker authentication
           </span>
+
         </div>
 
       </main>
+
     </div>
   );
 }
+
 
 export default BrokerSelection;

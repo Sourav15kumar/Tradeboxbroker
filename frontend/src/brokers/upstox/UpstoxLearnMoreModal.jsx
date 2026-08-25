@@ -141,7 +141,7 @@ function UpstoxLearnMoreModal({ onClose }) {
           <div>
 
             <strong>
-              Set your Redirect URI
+              Set your Redirect URL
             </strong>
 
             <p>
@@ -150,7 +150,7 @@ function UpstoxLearnMoreModal({ onClose }) {
             </p>
 
             <div className="upstox-code-box">
-              http://localhost:5000/api/upstox/callback
+             PASTE THE REDIRECT URL
             </div>
 
             <p>

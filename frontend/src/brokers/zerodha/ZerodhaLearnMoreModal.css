@@ -1,0 +1,723 @@
+/* =========================================================
+   ZERODHA LEARN MORE
+========================================================= */
+
+.zd-learn-overlay {
+  position: fixed;
+  inset: 0;
+
+  z-index: 2000;
+
+  padding: 20px;
+
+  background: rgba(15, 23, 42, 0.42);
+
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.zd-learn-modal {
+  position: relative;
+
+  width: 100%;
+  max-width: 550px;
+  max-height: 90vh;
+
+  overflow-y: auto;
+
+  padding: 30px;
+
+  background: #ffffff;
+
+  border: 1px solid #e5e7eb;
+
+  border-radius: 22px;
+
+  box-shadow:
+    0 30px 80px
+    rgba(15, 23, 42, 0.20);
+
+  animation:
+    zdModalOpen
+    0.2s ease-out;
+}
+
+
+@keyframes zdModalOpen {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(10px)
+      scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+
+}
+
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+.zd-learn-modal::-webkit-scrollbar {
+  width: 6px;
+}
+
+.zd-learn-modal::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.zd-learn-modal::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+
+  border-radius: 10px;
+}
+
+
+/* =========================================================
+   CLOSE BUTTON
+========================================================= */
+
+.zd-learn-close {
+  position: absolute;
+
+  top: 18px;
+  right: 18px;
+
+  width: 32px;
+  height: 32px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: #f3f4f6;
+
+  color: #667085;
+
+  font-family: inherit;
+  font-size: 20px;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+.zd-learn-close:hover {
+  background: #e5e7eb;
+
+  color: #111827;
+
+  transform: rotate(4deg);
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.zd-learn-logo {
+  width: 58px;
+  height: 58px;
+
+  padding: 6px;
+
+  border: 1px solid #d1fae5;
+
+  border-radius: 16px;
+
+  background: #f0fdf4;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+}
+
+
+.zd-learn-logo img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  display: block;
+
+  border-radius: 9px;
+}
+
+
+/* =========================================================
+   LABEL
+========================================================= */
+
+.zd-learn-label {
+  margin-top: 18px;
+
+  color: #16a34a;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 0.16em;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.zd-learn-modal h2 {
+  margin:
+    7px
+    0
+    8px;
+
+  padding-right: 35px;
+
+  color: #111827;
+
+  font-size: 23px;
+  font-weight: 750;
+
+  letter-spacing: -0.03em;
+
+  line-height: 1.25;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.zd-learn-description {
+  margin:
+    0
+    0
+    22px;
+
+  max-width: 470px;
+
+  color: #7b8493;
+
+  font-size: 11px;
+
+  line-height: 1.65;
+}
+
+
+/* =========================================================
+   STEPS
+========================================================= */
+
+.zd-learn-step {
+  padding:
+    15px
+    0;
+
+  border-bottom:
+    1px solid #f0f1f3;
+
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 13px;
+}
+
+
+.zd-learn-step.zd-last-step {
+  border-bottom: none;
+}
+
+
+/* =========================================================
+   NUMBER
+========================================================= */
+
+.zd-step-number {
+  width: 30px;
+  height: 30px;
+
+  flex-shrink: 0;
+
+  border-radius: 9px;
+
+  background: #ecfdf3;
+
+  color: #16a34a;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 10px;
+  font-weight: 800;
+}
+
+
+.zd-step-number.zd-success {
+  background: #dcfce7;
+
+  color: #15803d;
+}
+
+
+/* =========================================================
+   STEP CONTENT
+========================================================= */
+
+.zd-step-content {
+  flex: 1;
+
+  min-width: 0;
+}
+
+
+.zd-step-content > strong {
+  display: block;
+
+  color: #111827;
+
+  font-size: 12px;
+  font-weight: 750;
+
+  line-height: 1.45;
+}
+
+
+.zd-step-content p {
+  margin:
+    5px
+    0
+    0;
+
+  color: #7b8493;
+
+  font-size: 10px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   LINK
+========================================================= */
+
+.zd-learn-link {
+  display: inline-flex;
+
+  margin-top: 9px;
+
+  color: #16a34a;
+
+  font-size: 10px;
+  font-weight: 750;
+
+  text-decoration: none;
+
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+.zd-learn-link:hover {
+  color: #15803d;
+
+  text-decoration: underline;
+
+  transform: translateX(2px);
+}
+
+
+/* =========================================================
+   VALUES
+========================================================= */
+
+.zd-value-box {
+  margin-top: 10px;
+
+  padding:
+    10px
+    12px;
+
+  border:
+    1px solid #dfe3e8;
+
+  border-radius: 9px;
+
+  background: #f8fafc;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 12px;
+}
+
+
+.zd-value-box span {
+  color: #98a2b3;
+
+  font-size: 9px;
+}
+
+
+.zd-value-box strong {
+  color: #374151;
+
+  font-family:
+    Consolas,
+    "Courier New",
+    monospace;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  text-align: right;
+
+  word-break: break-word;
+}
+
+
+/* =========================================================
+   SMALL NOTE
+========================================================= */
+
+.zd-small-note {
+  margin-top: 8px !important;
+
+  color: #98a2b3 !important;
+
+  font-size: 9px !important;
+
+  line-height: 1.55 !important;
+}
+
+
+/* =========================================================
+   TRADEBOX FIELD PREVIEW
+========================================================= */
+
+.zd-fields-box {
+  margin-top: 10px;
+
+  padding: 12px;
+
+  border: 1px solid #e5e7eb;
+
+  border-radius: 11px;
+
+  background: #f8fafc;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 9px;
+}
+
+
+.zd-fields-box > div {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 12px;
+}
+
+
+.zd-fields-box span {
+  color: #98a2b3;
+
+  font-size: 9px;
+}
+
+
+.zd-fields-box strong {
+  color: #475467;
+
+  font-size: 9px;
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   FLOW
+========================================================= */
+
+.zd-flow-box {
+  margin-top: 10px;
+
+  padding: 10px;
+
+  border: 1px solid #dcfce7;
+
+  border-radius: 10px;
+
+  background: #f0fdf4;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 6px;
+}
+
+
+.zd-flow-box span {
+  color: #166534;
+
+  font-size: 8px;
+  font-weight: 750;
+
+  text-align: center;
+}
+
+
+.zd-flow-box b {
+  color: #86efac;
+
+  font-size: 11px;
+}
+
+
+/* =========================================================
+   WARNING
+========================================================= */
+
+.zd-learn-warning {
+  margin-top: 18px;
+
+  padding: 13px;
+
+  border: 1px solid #edf0f3;
+
+  border-radius: 12px;
+
+  background: #fafafa;
+
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 10px;
+}
+
+
+.zd-warning-icon {
+  width: 25px;
+  height: 25px;
+
+  flex-shrink: 0;
+
+  border-radius: 8px;
+
+  background: #ecfdf3;
+
+  color: #16a34a;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 11px;
+  font-weight: 850;
+}
+
+
+.zd-learn-warning strong {
+  display: block;
+
+  color: #374151;
+
+  font-size: 10px;
+}
+
+
+.zd-learn-warning p {
+  margin:
+    3px
+    0
+    0;
+
+  color: #8b95a5;
+
+  font-size: 9px;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   DONE BUTTON
+========================================================= */
+
+.zd-learn-done {
+  width: 100%;
+  height: 46px;
+
+  margin-top: 18px;
+
+  border: none;
+  border-radius: 11px;
+
+  background: #111827;
+
+  color: #ffffff;
+
+  font-family: inherit;
+
+  font-size: 12px;
+  font-weight: 750;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.zd-learn-done:hover {
+  background: #242b38;
+
+  transform:
+    translateY(-1px);
+
+  box-shadow:
+    0 8px 18px
+    rgba(15, 23, 42, 0.12);
+}
+
+
+.zd-learn-done:active {
+  transform:
+    translateY(0);
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 520px) {
+
+  .zd-learn-overlay {
+    padding: 12px;
+  }
+
+
+  .zd-learn-modal {
+    max-height: 94vh;
+
+    padding:
+      24px
+      20px;
+
+    border-radius: 18px;
+  }
+
+
+  .zd-learn-close {
+    top: 14px;
+    right: 14px;
+  }
+
+
+  .zd-learn-logo {
+    width: 52px;
+    height: 52px;
+  }
+
+
+  .zd-learn-modal h2 {
+    font-size: 20px;
+  }
+
+
+  .zd-learn-description {
+    font-size: 10px;
+  }
+
+
+  .zd-learn-step {
+    padding:
+      13px
+      0;
+
+    gap: 10px;
+  }
+
+
+  .zd-step-number {
+    width: 28px;
+    height: 28px;
+  }
+
+
+  .zd-value-box {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+
+  .zd-value-box strong {
+    text-align: left;
+  }
+
+
+  .zd-fields-box > div {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 3px;
+  }
+
+
+  .zd-flow-box {
+    flex-wrap: wrap;
+
+    justify-content: center;
+  }
+
+}

@@ -2,147 +2,144 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
+import growwImage
+  from "../../assets/brokers/groww.png";
+
+import GrowwLearnMoreModal
+  from "./GrowwLearnMoreModal";
+
 import "./GrowwAuth.css";
-import GrowwLearnMoreModal from "./GrowwLearnMoreModal";
+
 
 function GrowwAuth() {
+
   const navigate = useNavigate();
 
-  const [totpToken, setTotpToken] = useState("");
-  const [totpCode, setTotpCode] = useState("");
+  const [apiKey, setApiKey] =
+    useState("");
 
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
+  const [apiSecret, setApiSecret] =
+    useState("");
 
-  const [showTotpCode, setShowTotpCode] = useState(false);
-  const [showLearnMore, setShowLearnMore] = useState(false);
+  const [showSecret, setShowSecret] =
+    useState(false);
 
-  const handleAuthenticate = async (e) => {
-    e.preventDefault();
+  const [showLearnMore, setShowLearnMore] =
+    useState(false);
 
-    setError("");
+  const [loading, setLoading] =
+    useState(false);
 
-    const cleanTotpToken = totpToken.trim();
-    const cleanTotpCode = totpCode.trim();
+  const [error, setError] =
+    useState("");
 
-    // ----------------------------------------
-    // TOTP TOKEN VALIDATION
-    // ----------------------------------------
 
-    if (!cleanTotpToken) {
-      setError("Please enter your Groww TOTP Token.");
-      return;
-    }
+  const handleAuthenticate =
+    async (e) => {
 
-    // ----------------------------------------
-    // TOTP CODE VALIDATION
-    // ----------------------------------------
-
-    if (!cleanTotpCode) {
-      setError("Please enter your Groww TOTP Code.");
-      return;
-    }
-
-    if (!/^\d{6}$/.test(cleanTotpCode)) {
-      setError("Groww TOTP Code must be exactly 6 digits.");
-      return;
-    }
-
-    try {
-      setLoading(true);
-
-      // ----------------------------------------
-      // SEND CREDENTIALS TO BACKEND
-      // ----------------------------------------
-
-      const response = await axios.post(
-        "http://localhost:5000/api/groww/authenticate",
-        {
-          // Backend expects apiKey.
-          // UI calls it TOTP Token.
-          apiKey: cleanTotpToken,
-
-          // Backend expects totp.
-          totp: cleanTotpCode,
-        }
-      );
-
-      // ----------------------------------------
-      // HANDLE BACKEND RESPONSE
-      // ----------------------------------------
-
-      if (!response.data?.success) {
-        throw new Error(
-          response.data?.message ||
-            "Groww authentication failed."
-        );
-      }
-
-      // ----------------------------------------
-      // SUCCESS
-      // ----------------------------------------
-
-      console.log(
-        "Groww authentication successful."
-      );
-
-      /*
-       * Access token is intentionally NOT returned
-       * to the frontend.
-       *
-       * It is available only on the backend
-       * console for testing.
-       */
+      e.preventDefault();
 
       setError("");
 
-      alert(
-        "Groww authentication successful!"
-      );
 
-    } catch (err) {
-      console.error(
-        "Groww authentication error:",
-        err
-      );
+      if (!apiKey.trim()) {
 
-      setError(
-        err.response?.data?.message ||
+        setError(
+          "Please enter your Groww API Key."
+        );
+
+        return;
+      }
+
+
+      if (!apiSecret.trim()) {
+
+        setError(
+          "Please enter your Groww API Secret."
+        );
+
+        return;
+      }
+
+
+      try {
+
+        setLoading(true);
+
+
+        const response =
+          await axios.post(
+            "http://localhost:5000/api/groww/authenticate",
+            {
+              apiKey:
+                apiKey.trim(),
+
+              apiSecret:
+                apiSecret.trim(),
+            }
+          );
+
+
+        if (!response.data.success) {
+
+          throw new Error(
+            response.data.message ||
+            "Groww authentication failed."
+          );
+
+        }
+
+
+        console.log(
+          "Groww connected successfully"
+        );
+
+
+      } catch (err) {
+
+        console.error(
+          "GROWW AUTH ERROR:",
+          err
+        );
+
+
+        setError(
+          err.response?.data?.message ||
           err.message ||
           "Groww authentication failed."
-      );
+        );
 
-    } finally {
-      setLoading(false);
-    }
-  };
+
+      } finally {
+
+        setLoading(false);
+
+      }
+
+    };
+
 
   return (
+
     <div className="groww-auth-page">
 
-      {/* ======================================
-          BACKGROUND
-      ====================================== */}
-
-      <div className="auth-grid" />
-
-      <div className="auth-glow auth-glow-one" />
-      <div className="auth-glow auth-glow-two" />
-
-      {/* ======================================
-          HEADER
-      ====================================== */}
 
       <header className="auth-header">
 
         <button
           type="button"
           className="back-button"
-          onClick={() => navigate("/")}
+          onClick={() =>
+            navigate("/")
+          }
         >
-          <span>←</span>
+          <span>
+            ←
+          </span>
+
           Back to brokers
         </button>
+
 
         <div className="auth-brand">
 
@@ -156,6 +153,7 @@ function GrowwAuth() {
 
         </div>
 
+
         <div className="auth-header-secure">
 
           <span />
@@ -166,25 +164,30 @@ function GrowwAuth() {
 
       </header>
 
-      {/* ======================================
-          MAIN
-      ====================================== */}
 
       <main className="auth-main">
 
+
         <div className="auth-card">
 
-          {/* ==================================
-              CARD HEADER
-          ================================== */}
+
+          {/* HEADER */}
 
           <div className="auth-card-header">
 
+
             <div className="groww-big-logo">
-              G
+
+              <img
+                src={growwImage}
+                alt="Groww"
+              />
+
             </div>
 
+
             <div className="auth-heading">
+
 
               <div className="broker-label">
 
@@ -194,29 +197,33 @@ function GrowwAuth() {
 
               </div>
 
+
               <h1>
                 Connect your account
               </h1>
 
+
               <p>
-                Enter your Groww TOTP credentials
+                Enter your Groww API credentials
                 to securely connect your Groww
-                account.
+                account with Tradebox.
               </p>
+
 
             </div>
 
           </div>
 
-          {/* ==================================
-              SECURITY BOX
-          ================================== */}
+
+          {/* SECURITY */}
 
           <div className="security-box">
+
 
             <div className="security-box-icon">
               ✓
             </div>
+
 
             <div>
 
@@ -225,35 +232,34 @@ function GrowwAuth() {
               </strong>
 
               <p>
-                Your TOTP Token and TOTP Code are
-                sent securely to the Tradebox
-                backend. Your access token is never
-                sent back to the browser.
+                Your API Key and API Secret are
+                sent to the Tradebox backend only
+                for authentication.
               </p>
 
             </div>
 
+
           </div>
 
-          {/* ==================================
-              FORM
-          ================================== */}
+
+          {/* FORM */}
 
           <form
             onSubmit={handleAuthenticate}
             className="auth-form"
           >
 
-            {/* ==================================
-                TOTP TOKEN
-            ================================== */}
+
+            {/* API KEY */}
 
             <div className="field-group">
+
 
               <div className="label-row">
 
                 <label>
-                  TOTP Token
+                  API Key
                 </label>
 
                 <span>
@@ -262,98 +268,99 @@ function GrowwAuth() {
 
               </div>
 
+
               <div className="premium-input">
+
 
                 <div className="input-icon">
                   #
                 </div>
 
+
                 <input
                   type="text"
-                  placeholder="Enter your Groww TOTP Token"
-                  value={totpToken}
+                  placeholder="Enter your Groww API Key"
+                  value={apiKey}
                   onChange={(e) =>
-                    setTotpToken(e.target.value)
+                    setApiKey(
+                      e.target.value
+                    )
                   }
                   autoComplete="off"
-                  spellCheck="false"
                 />
+
 
               </div>
 
+
             </div>
 
-            {/* ==================================
-                TOTP CODE
-            ================================== */}
+
+            {/* API SECRET */}
 
             <div className="field-group">
+
 
               <div className="label-row">
 
                 <label>
-                  TOTP Code
+                  API Secret
                 </label>
 
                 <span>
-                  6 digits
+                  Required
                 </span>
 
               </div>
 
+
               <div className="premium-input">
+
 
                 <div className="input-icon">
                   •••
                 </div>
 
+
                 <input
                   type={
-                    showTotpCode
+                    showSecret
                       ? "text"
                       : "password"
                   }
-                  placeholder="Enter your 6-digit TOTP Code"
-                  value={totpCode}
-                  onChange={(e) => {
-
-                    const value =
-                      e.target.value.replace(
-                        /\D/g,
-                        ""
-                      );
-
-                    if (value.length <= 6) {
-                      setTotpCode(value);
-                    }
-
-                  }}
-                  inputMode="numeric"
-                  maxLength={6}
-                  autoComplete="one-time-code"
+                  placeholder="Enter your Groww API Secret"
+                  value={apiSecret}
+                  onChange={(e) =>
+                    setApiSecret(
+                      e.target.value
+                    )
+                  }
+                  autoComplete="new-password"
                 />
+
 
                 <button
                   type="button"
                   className="show-button"
                   onClick={() =>
-                    setShowTotpCode(
-                      !showTotpCode
+                    setShowSecret(
+                      !showSecret
                     )
                   }
                 >
-                  {showTotpCode
+                  {showSecret
                     ? "Hide"
                     : "Show"}
                 </button>
 
+
               </div>
+
 
             </div>
 
-            {/* ==================================
-                LEARN MORE
-            ================================== */}
+
+            {/* LEARN MORE */}
 
             <button
               type="button"
@@ -367,9 +374,11 @@ function GrowwAuth() {
                 ?
               </span>
 
+
               <span>
-                How do I get my TOTP Token & Code?
+                How do I get my API Key & Secret?
               </span>
+
 
               <span className="learn-arrow">
                 →
@@ -377,9 +386,8 @@ function GrowwAuth() {
 
             </button>
 
-            {/* ==================================
-                ERROR
-            ================================== */}
+
+            {/* ERROR */}
 
             {error && (
 
@@ -389,17 +397,14 @@ function GrowwAuth() {
                   !
                 </span>
 
-                <span>
-                  {error}
-                </span>
+                {error}
 
               </div>
 
             )}
 
-            {/* ==================================
-                AUTHENTICATE BUTTON
-            ================================== */}
+
+            {/* SUBMIT */}
 
             <button
               type="submit"
@@ -408,10 +413,13 @@ function GrowwAuth() {
             >
 
               <span>
+
                 {loading
-                  ? "Authenticating..."
+                  ? "Connecting..."
                   : "Authenticate with Groww"}
+
               </span>
+
 
               {!loading && (
 
@@ -423,11 +431,9 @@ function GrowwAuth() {
 
             </button>
 
+
           </form>
 
-          {/* ==================================
-              FOOTER
-          ================================== */}
 
           <div className="auth-card-footer">
 
@@ -443,27 +449,12 @@ function GrowwAuth() {
 
           </div>
 
-        </div>
-
-        {/* ====================================
-            BOTTOM NOTE
-        ==================================== */}
-
-        <div className="auth-bottom-note">
-
-          Tradebox Broker Integration
-
-          <span>•</span>
-
-          Groww
 
         </div>
+
 
       </main>
 
-      {/* ======================================
-          GROW W SPECIFIC LEARN MORE MODAL
-      ====================================== */}
 
       {showLearnMore && (
 
@@ -475,8 +466,11 @@ function GrowwAuth() {
 
       )}
 
+
     </div>
+
   );
 }
+
 
 export default GrowwAuth;
